@@ -34,13 +34,15 @@ serial_number = input("Enter the Serial Number: ")
 kit_assigned = input("Was the device assigned to a HTK? Y/N ")
 if kit_assigned in ["Y", "y", "Yes", "yes", "YES"]:
        kit_name = input("Enter the Kit Name: ")
+
 if device_name == "Router":
       speed_test = input("Were you able to run a speed test? Y/N: ")
-if speed_test in ["Y", "y", "Yes", "yes", "YES"]:
-      download_speed = input("Download Speed in Mbps: ")
-      upload_speed = input("Upload Speed in Mbps: ")
-      ping = input("Ping in ms: ")
-      jitter = input("Ping in ms: ")
+
+      if speed_test in ["Y", "y", "Yes", "yes", "YES"]:
+              download_speed = input("Download Speed in Mbps: ")
+              upload_speed = input("Upload Speed in Mbps: ")
+              ping = input("Ping in ms: ")
+              jitter = input("Ping in ms: ")
 
 issue = input("Describe the issue: ")
 cause = input("What was the cause?: ")
