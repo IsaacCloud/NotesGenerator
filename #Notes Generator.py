@@ -14,7 +14,11 @@ device_types = {
        "8": "Thermometer"
 }
 
+asset_tag = "NA"
+serial_number = "NA"
+kit_name = "NA"
 speed_test_results = "NA"
+follow_up_date = "not required."
 
 # Welcome Message
 print("*** Ticket Notes Generator ***")
@@ -24,21 +28,20 @@ device_type = input("Enter the Device Type: \n 1) Tablet \n 2) Router \n 3) Phon
 if device_type not in device_types:
        print("You must enter the Device Type from the following: \n 1) Tablet \n 2) Router \n 3) Phone \n 4) PERS \n CHOICE: " )
 device_name = device_types[device_type]
-print(f"You selected {device_name}.")
+print(f"\nYou selected {device_name}.\n")
 
-asset_tag = "NA"
+
 asset_tag = input("Enter the Asset Tag, enter '0000' if there is no Asset Tag: ")
 if not asset_tag.isdigit():
     print("Please start over and enter a numerical value for the Asset tag.")
     sys.exit()
 
-serial_number = "NA"
+
 serial_number = input("Enter the Serial Number: ")
 kit_assigned = input("Was the device assigned to a HTK? Y/N ")
-kit_name = "NA"
+
 if kit_assigned in ["Y", "y", "Yes", "yes", "YES"]:
        kit_name = input("Enter the Kit Name: ")
-
 
 speed_test = input("Were you able to run a speed test? Y/N: ")
 
@@ -54,14 +57,12 @@ issue = input("Problem: ")
 cause = input("Cause: ")
 resolution = input("Solution: ")
 follow_up = input("Is a follow up with the user required? Y/N: ")
-if follow_up == "Y":
+if follow_up in ["Y", "y", "Yes", "yes", "YES"]:
        follow_up_date = input("Please enter a follow up date in DD/MM/YYYY format: ")
-else:
-       follow_up_date = "NA"
 
 # Output Summary
-# print(speed_test_results)
-print(f"Copy and paste this summary into your ticket notes: \n\nDevice Reported: {device_name}\nAsset Tag: {asset_tag}\nSerial Number: {serial_number}\nKit Name: {kit_name}\n\nSpeed Test Resuluts:\n{speed_test_results}\n\nProblem:\n{issue}\n\nCause:\n{cause}\n\nResolution:\n{resolution}\n")
-print(f"If a follow up is required, please follow up with the user on: {follow_up_date}")
+
+print(f"\nCopy and paste this summary into your ticket notes: \n\nDevice Type: {device_name}\nAsset Tag: {asset_tag}\nSerial Number: {serial_number}\nKit Name: {kit_name}\n\nSpeed Test Results:\n{speed_test_results}\n\nProblem:\n{issue}\n\nCause:\n{cause}\n\nResolution:\n{resolution}\n")
+print(f"Follow up {follow_up_date}")
 
 # Output to file > figure this out.
