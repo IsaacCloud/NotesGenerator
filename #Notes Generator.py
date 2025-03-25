@@ -31,6 +31,7 @@ if not asset_tag.isdigit():
 
 serial_number = input("Enter the Serial Number: ")
 kit_assigned = input("Was the device assigned to a HTK? Y/N ")
+kit_name = "NA"
 if kit_assigned in ["Y", "y", "Yes", "yes", "YES"]:
        kit_name = input("Enter the Kit Name: ")
 
@@ -52,6 +53,8 @@ if follow_up == "Y":
 else:
        follow_up_date = "NA"
 
-# Output Summary - figure out a way to to possibly export as formatted text
+# Output Summary
 print(f"Copy and paste this summary into your ticket notes: \n\nDevice Reported: {device_name}\nAsset Tag: {asset_tag}\nSerial Number: {serial_number}\nKit Name: {kit_name}\n\nProblem:\n{issue}\n\nCause:\n{cause}\n\nResolution:\n{resolution}.\n")
 print(f"If a follow up is required, please follow up with the user on: {follow_up_date}")
+
+# Output to file > figure this out.
