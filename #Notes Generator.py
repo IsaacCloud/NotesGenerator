@@ -44,6 +44,7 @@ kit_assigned = input("Was the device assigned to a HTK? Y/N ")
 
 if kit_assigned in ["Y", "y", "Yes", "yes", "YES"]:
        kit_name = input("Enter the Kit Name: ")
+       kit_link = input("Paste the link to the kit: ")
 
 speed_test = input("Were you able to run a speed test? Y/N: ")
 
@@ -53,7 +54,7 @@ if speed_test in ["Y", "y", "Yes", "yes", "YES"]:
         ping = input("Ping in ms: ")
         jitter = input("Jitter in ms: ")
 
-        speed_test_results = f"Download:{download_speed}\nMbps Upload:{upload_speed}Mbps\nPing:{ping}ms\nJitter{jitter}ms"
+        speed_test_results = f"Download: {download_speed}Mbps\nUpload: {upload_speed}Mbps\nPing: {ping}ms\nJitter: {jitter}ms"
 
 issue = input("Problem: ")
 cause = input("Cause: ")
@@ -62,14 +63,14 @@ follow_up = input("Is a follow up with the user required? Y/N: ")
 if follow_up in ["Y", "y", "Yes", "yes", "YES"]:
        follow_up_date = input("Please enter a follow up date in DD/MM/YYYY format: ")
 
-# Output Summary to be copied and pasted into Incident Notes
+# Output Summary to be copied and pasted into Incident Notes. Does not do spelling or grammar checks. Make corrections in the Notes field before submitting.
 rma_notes = f"""
 [code]<b>Summary:</b>[/code]
 
 [code]<b>Device Type:</b>[/code] {device_name}
 [code]<b>Asset Tag:</b>[/code] {asset_tag}
 [code]<b>Serial Number:</b>[/code] {serial_number}
-[code]<b>Kit Name:</b>[/code] {kit_name}
+[code]<b>Kit Name: </b><a href="{kit_link}">{kit_name}</a>[/code]
 
 [code]<b>Speed Test Results:</b>[/code]
 {speed_test_results}
@@ -83,7 +84,7 @@ rma_notes = f"""
 [code]<b>Resolution:</b>[/code]
 {resolution}
 
-Follow up: {follow_up_date}
+[code]<b>Follow up: {follow_up_date}</b>[/code]
 """
 
 print(rma_notes)
