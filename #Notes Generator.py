@@ -1,6 +1,8 @@
 #Notes Generator
 
-import sys 
+# Imports
+import sys # Used for exiting app if no asset tag is entered.
+import pyperclip # Used to copy notes generated to clipboard.
 
 # Device Types
 device_types = {
@@ -18,13 +20,13 @@ asset_tag = "NA"
 serial_number = "NA"
 kit_name = "NA"
 speed_test_results = "NA"
-follow_up_date = "not required."
+follow_up_date = "Not required."
 
 # Welcome Message
-print("*** Ticket Notes Generator ***")
+print("\n*** Ticket Notes Generator ***")
 
 # Input logic
-device_type = input("Enter the Device Type: \n 1) Tablet \n 2) Router \n 3) Phone \n 4) PERS \n 5) Pulse Oximeter \n 6) Weight Scale \n 7) Blood Pressure Machine \n 8) Thermometer \n CHOICE: " )
+device_type = input("Enter the Device Type: \n 1) Tablet \n 2) Router \n 3) Phone \n 4) PERS \n 5) Pulse Oximeter \n 6) Weight Scale \n 7) Blood Pressure Machine \n 8) Thermometer \n\n CHOICE: " )
 if device_type not in device_types:
        print("You must enter the Device Type from the following: \n 1) Tablet \n 2) Router \n 3) Phone \n 4) PERS \n CHOICE: " )
 device_name = device_types[device_type]
@@ -60,9 +62,30 @@ follow_up = input("Is a follow up with the user required? Y/N: ")
 if follow_up in ["Y", "y", "Yes", "yes", "YES"]:
        follow_up_date = input("Please enter a follow up date in DD/MM/YYYY format: ")
 
-# Output Summary
+# Output Summary to be copied and pasted into Incident Notes
+rma_notes = f"""
+Summary:
 
-print(f"\nCopy and paste this summary into your ticket notes: \n\nDevice Type: {device_name}\nAsset Tag: {asset_tag}\nSerial Number: {serial_number}\nKit Name: {kit_name}\n\nSpeed Test Results:\n{speed_test_results}\n\nProblem:\n{issue}\n\nCause:\n{cause}\n\nResolution:\n{resolution}\n")
-print(f"Follow up {follow_up_date}")
+Device Type: {device_name}
+Asset Tag: {asset_tag}
+Serial Number: {serial_number}
+Kit Name: {kit_name}
 
-# Output to file > figure this out.
+Speed Test Results:
+{speed_test_results}
+
+Problem:
+{issue}
+
+Cause:
+{cause}
+
+Resolution:
+{resolution}
+
+Follow up: {follow_up_date}
+"""
+
+print(rma_notes)
+pyperclip.copy(rma_notes)
+print("✅ RMA notes copied to clipboard! 📋")
