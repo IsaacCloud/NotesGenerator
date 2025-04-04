@@ -64,23 +64,23 @@ if follow_up in ["Y", "y", "Yes", "yes", "YES"]:
 
 # Output Summary to be copied and pasted into Incident Notes
 rma_notes = f"""
-Summary:
+[code]<b>Summary:</b>[/code]
 
-Device Type: {device_name}
-Asset Tag: {asset_tag}
-Serial Number: {serial_number}
-Kit Name: {kit_name}
+[code]<b>Device Type:</b>[/code] {device_name}
+[code]<b>Asset Tag:</b>[/code] {asset_tag}
+[code]<b>Serial Number:</b>[/code] {serial_number}
+[code]<b>Kit Name:</b>[/code] {kit_name}
 
-Speed Test Results:
+[code]<b>Speed Test Results:</b>[/code]
 {speed_test_results}
 
-Problem:
+[code]<b>Problem:</b>[/code]
 {issue}
 
-Cause:
+[code]<b>Cause:</b>[/code]
 {cause}
 
-Resolution:
+[code]<b>Resolution:</b>[/code]
 {resolution}
 
 Follow up: {follow_up_date}
